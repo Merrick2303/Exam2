@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>words.txt.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+words.txt.py</font>
+</center></td></tr></table>
+<pre><span class="s0"># Function to read words from the file and return them in a list</span>
+<span class="s2">def </span><span class="s1">read_words_from_file</span><span class="s3">(</span><span class="s1">filename</span><span class="s3">):</span>
+    <span class="s2">with </span><span class="s1">open</span><span class="s3">(</span><span class="s1">filename</span><span class="s3">, </span><span class="s4">'r'</span><span class="s3">) </span><span class="s2">as </span><span class="s1">file</span><span class="s3">:</span>
+        <span class="s1">words </span><span class="s3">= </span><span class="s1">file</span><span class="s3">.</span><span class="s1">read</span><span class="s3">().</span><span class="s1">splitlines</span><span class="s3">()</span>
+    <span class="s2">return </span><span class="s1">words</span>
+
+
+<span class="s0"># Function to sort the list alphabetically without using the sort or sorted functions</span>
+<span class="s2">def </span><span class="s1">sort_words</span><span class="s3">(</span><span class="s1">words</span><span class="s3">):</span>
+    <span class="s0"># Using a simple bubble sort algorithm</span>
+    <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range</span><span class="s3">(</span><span class="s1">len</span><span class="s3">(</span><span class="s1">words</span><span class="s3">)):</span>
+        <span class="s2">for </span><span class="s1">j </span><span class="s2">in </span><span class="s1">range</span><span class="s3">(</span><span class="s5">0</span><span class="s3">, </span><span class="s1">len</span><span class="s3">(</span><span class="s1">words</span><span class="s3">) - </span><span class="s1">i </span><span class="s3">- </span><span class="s5">1</span><span class="s3">):</span>
+            <span class="s2">if </span><span class="s1">words</span><span class="s3">[</span><span class="s1">j</span><span class="s3">] &gt; </span><span class="s1">words</span><span class="s3">[</span><span class="s1">j </span><span class="s3">+ </span><span class="s5">1</span><span class="s3">]:</span>
+                <span class="s1">words</span><span class="s3">[</span><span class="s1">j</span><span class="s3">], </span><span class="s1">words</span><span class="s3">[</span><span class="s1">j </span><span class="s3">+ </span><span class="s5">1</span><span class="s3">] = </span><span class="s1">words</span><span class="s3">[</span><span class="s1">j </span><span class="s3">+ </span><span class="s5">1</span><span class="s3">], </span><span class="s1">words</span><span class="s3">[</span><span class="s1">j</span><span class="s3">]</span>
+    <span class="s2">return </span><span class="s1">words</span>
+
+
+<span class="s0"># Function to write the sorted list of words to a new file</span>
+<span class="s2">def </span><span class="s1">write_sorted_words_to_file</span><span class="s3">(</span><span class="s1">words</span><span class="s3">, </span><span class="s1">filename</span><span class="s3">):</span>
+    <span class="s2">with </span><span class="s1">open</span><span class="s3">(</span><span class="s1">filename</span><span class="s3">, </span><span class="s4">'w'</span><span class="s3">) </span><span class="s2">as </span><span class="s1">file</span><span class="s3">:</span>
+        <span class="s2">for </span><span class="s1">word </span><span class="s2">in </span><span class="s1">words</span><span class="s3">:</span>
+            <span class="s1">file</span><span class="s3">.</span><span class="s1">write</span><span class="s3">(</span><span class="s1">word </span><span class="s3">+ </span><span class="s4">'</span><span class="s2">\n</span><span class="s4">'</span><span class="s3">)</span>
+
+
+<span class="s0"># Main code to execute the functions</span>
+<span class="s2">if </span><span class="s1">__name__ </span><span class="s3">== </span><span class="s4">&quot;__main__&quot;</span><span class="s3">:</span>
+    <span class="s0"># Create and write the words into words.txt</span>
+    <span class="s1">words </span><span class="s3">= [</span><span class="s4">'cat'</span><span class="s3">, </span><span class="s4">'dog'</span><span class="s3">, </span><span class="s4">'animal'</span><span class="s3">, </span><span class="s4">'goat'</span><span class="s3">, </span><span class="s4">'sheep'</span><span class="s3">, </span><span class="s4">'monkey'</span><span class="s3">, </span><span class="s4">'turtle'</span><span class="s3">]</span>
+    <span class="s2">with </span><span class="s1">open</span><span class="s3">(</span><span class="s4">'words.txt'</span><span class="s3">, </span><span class="s4">'w'</span><span class="s3">) </span><span class="s2">as </span><span class="s1">file</span><span class="s3">:</span>
+        <span class="s2">for </span><span class="s1">word </span><span class="s2">in </span><span class="s1">words</span><span class="s3">:</span>
+            <span class="s1">file</span><span class="s3">.</span><span class="s1">write</span><span class="s3">(</span><span class="s1">word </span><span class="s3">+ </span><span class="s4">'</span><span class="s2">\n</span><span class="s4">'</span><span class="s3">)</span>
+
+    <span class="s0"># Read the words from the file</span>
+    <span class="s1">words_from_file </span><span class="s3">= </span><span class="s1">read_words_from_file</span><span class="s3">(</span><span class="s4">'words.txt'</span><span class="s3">)</span>
+
+    <span class="s0"># Sort the words</span>
+    <span class="s1">sorted_words </span><span class="s3">= </span><span class="s1">sort_words</span><span class="s3">(</span><span class="s1">words_from_file</span><span class="s3">)</span>
+
+    <span class="s0"># Write the sorted words to a new file</span>
+    <span class="s1">write_sorted_words_to_file</span><span class="s3">(</span><span class="s1">sorted_words</span><span class="s3">, </span><span class="s4">'sorted_words.txt'</span><span class="s3">)</span>
+
+    <span class="s1">print</span><span class="s3">(</span><span class="s4">&quot;Sorted words have been written to sorted_words.txt.&quot;</span><span class="s3">)</span>
+</pre>
+</body>
+</html>

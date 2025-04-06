@@ -1,0 +1,7 @@
+animal
+cat
+dog
+goat
+monkey
+sheep
+turtle
